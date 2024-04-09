@@ -107,3 +107,50 @@ void l_cmd(const char* dirname) {
     closedir(dir);
     return;
 }
+
+
+// main fucn
+int main(int argc, char *argv[]) {
+    // wrong command input
+    if (argc < 2) {
+        printf("Usage: %s [file path] [ -i, -l, -il or -li\n]", argv[0]);
+        return 1;
+    }
+
+    char* dirname = argv[1]; 
+    int i_flag = 0, l_flag = 0; // determine commnad among 4
+    
+    for (int i = 2; i < argc; i++) {
+        if (strcmp(argv[i], "-i") == 0) {
+            i_flag = 1;
+        }
+        else if (strcmp(argv[i], "-l") == 0) {
+            l_flag = 1;
+        }
+        else if (strcmp(argv[i], "-il") == 0) {
+            i_flag = 1;
+            l_flag = 1;
+        }
+        else if (strcmp(argv[i], "-li") == 0) {
+            i_flag = 1;
+            l_flag = 1;
+        }
+    } // for
+
+    // execute command
+    if (i_flag && l_flag) {
+        i_cmd(dirname);
+        l_cmd(dirname);
+    }
+    else if (i_flag) {
+        i_cmd(dirname);
+    }
+    else if (l_flag) {
+        l_cmd(dirname);
+    }
+    else {
+        printf("Not valid command\n");
+    }
+
+    return 0;
+}

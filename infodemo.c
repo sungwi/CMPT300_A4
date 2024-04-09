@@ -1,4 +1,7 @@
-// write includes! 
+#include <sys/types.h>
+#include <grp.h>
+#include <stdio.h>
+#include <pwd.h>
 
 void getAndPrintGroup(gid_t grpNum) {
   struct group *grp;
