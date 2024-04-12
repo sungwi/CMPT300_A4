@@ -1,0 +1,262 @@
+CMPT 300: assignment4 - sample output
+
+Name: Sungwi Kim
+Student Number: 301592065
+
+[ Test Directory ] 
+mkdir dir1  
+echo "hello, World" > file1.txt      
+echo "smash brothers" > file2.txt     
+echo "hello, World" > file1.txt         
+ln -s file1.txt link_to_file1          
+ln -s dir1 link_to_dir1                 
+
+
+---------------------------------------------------
+[ Output ]
+
+(1) ./UnixLs /Users/kimsongwi/Desktop/SFU/2024_Spring/CMPT_300/Assignments/testLs -l
+
+drwxr-xr-x    8 kimsongwi staff           256 Apr 11 2024 22:34 .
+drwxr-xr-x   17 kimsongwi staff           544 Apr 11 2024 22:32 ..
+-rw-r--r--    1 kimsongwi staff            15 Apr 11 2024 22:33 file2.txt
+-rw-r--r--    1 kimsongwi staff            13 Apr 11 2024 22:33 file1.txt
+-rw-r--r--    1 kimsongwi staff          6148 Apr 11 2024 22:34 .DS_Store
+drwxr-xr-x    2 kimsongwi staff            64 Apr 11 2024 22:32 dir1
+lrwxr-xr-x    1 kimsongwi staff             4 Apr 11 2024 22:34 link_to_dir1 -> /Users/kimsongwi/Desktop/SFU/2024_Spring/CMPT_300/Assignments/testLs
+lrwxr-xr-x    1 kimsongwi staff             9 Apr 11 2024 22:34 link_to_file1 -> /Users/kimsongwi/Desktop/SFU/2024_Spring/CMPT_300/Assignments/testLs
+
+
+(2) ./UnixLs /Users/kimsongwi/Desktop/SFU/2024_Spring/CMPT_300/Assignments/testLs -i
+
+inonumber: 119953473
+inonumber: 103774766
+inonumber: 119953956
+inonumber: 119954020
+inonumber: 119954249
+inonumber: 119953717
+inonumber: 119954112
+inonumber: 119954085
+
+
+(3) ./UnixLs /Users/kimsongwi/Desktop/SFU/2024_Spring/CMPT_300/Assignments/testLs -l -i
+
+inonumber: 119953473
+inonumber: 103774766
+inonumber: 119953956
+inonumber: 119954020
+inonumber: 119954249
+inonumber: 119953717
+inonumber: 119954112
+inonumber: 119954085
+drwxr-xr-x    8 kimsongwi staff           256 Apr 11 2024 22:34 .
+drwxr-xr-x   17 kimsongwi staff           544 Apr 11 2024 22:32 ..
+-rw-r--r--    1 kimsongwi staff            15 Apr 11 2024 22:33 file2.txt
+-rw-r--r--    1 kimsongwi staff            13 Apr 11 2024 22:33 file1.txt
+-rw-r--r--    1 kimsongwi staff          6148 Apr 11 2024 22:34 .DS_Store
+drwxr-xr-x    2 kimsongwi staff            64 Apr 11 2024 22:32 dir1
+lrwxr-xr-x    1 kimsongwi staff             4 Apr 11 2024 22:34 link_to_dir1 -> /Users/kimsongwi/Desktop/SFU/2024_Spring/CMPT_300/Assignments/testLs
+lrwxr-xr-x    1 kimsongwi staff             9 Apr 11 2024 22:34 link_to_file1 -> /Users/kimsongwi/Desktop/SFU/2024_Spring/CMPT_300/Assignments/testLs
+
+
+(4) ./UnixLs /Users/kimsongwi/Desktop/SFU/2024_Spring/CMPT_300/Assignments/testLs -li
+
+inonumber: 119953473
+inonumber: 103774766
+inonumber: 119953956
+inonumber: 119954020
+inonumber: 119954249
+inonumber: 119953717
+inonumber: 119954112
+inonumber: 119954085
+drwxr-xr-x    8 kimsongwi staff           256 Apr 11 2024 22:34 .
+drwxr-xr-x   17 kimsongwi staff           544 Apr 11 2024 22:32 ..
+-rw-r--r--    1 kimsongwi staff            15 Apr 11 2024 22:33 file2.txt
+-rw-r--r--    1 kimsongwi staff            13 Apr 11 2024 22:33 file1.txt
+-rw-r--r--    1 kimsongwi staff          6148 Apr 11 2024 22:34 .DS_Store
+drwxr-xr-x    2 kimsongwi staff            64 Apr 11 2024 22:32 dir1
+lrwxr-xr-x    1 kimsongwi staff             4 Apr 11 2024 22:34 link_to_dir1 -> /Users/kimsongwi/Desktop/SFU/2024_Spring/CMPT_300/Assignments/testLs
+lrwxr-xr-x    1 kimsongwi staff             9 Apr 11 2024 22:34 link_to_file1 -> /Users/kimsongwi/Desktop/SFU/2024_Spring/CMPT_300/Assignments/testLs
+
+
+(5) ./UnixLs /Users/kimsongwi/Desktop/SFU/2024_Spring/CMPT_300/Assignments/testLs -il
+
+inonumber: 119953473
+inonumber: 103774766
+inonumber: 119953956
+inonumber: 119954020
+inonumber: 119954249
+inonumber: 119953717
+inonumber: 119954112
+inonumber: 119954085
+drwxr-xr-x    8 kimsongwi staff           256 Apr 11 2024 22:34 .
+drwxr-xr-x   17 kimsongwi staff           544 Apr 11 2024 22:32 ..
+-rw-r--r--    1 kimsongwi staff            15 Apr 11 2024 22:33 file2.txt
+-rw-r--r--    1 kimsongwi staff            13 Apr 11 2024 22:33 file1.txt
+-rw-r--r--    1 kimsongwi staff          6148 Apr 11 2024 22:34 .DS_Store
+drwxr-xr-x    2 kimsongwi staff            64 Apr 11 2024 22:32 dir1
+lrwxr-xr-x    1 kimsongwi staff             4 Apr 11 2024 22:34 link_to_dir1 -> /Users/kimsongwi/Desktop/SFU/2024_Spring/CMPT_300/Assignments/testLs
+lrwxr-xr-x    1 kimsongwi staff             9 Apr 11 2024 22:34 link_to_file1 -> /Users/kimsongwi/Desktop/SFU/2024_Spring/CMPT_300/Assignments/testLs
+
+(6) ./UnixLs ~/ -i
+
+inonumber: 240563
+inonumber: 23684
+inonumber: 24309714
+inonumber: 48903319
+inonumber: 48903145
+inonumber: 434906
+inonumber: 25575276
+inonumber: 28039729
+inonumber: 20803346
+inonumber: 240568
+inonumber: 21429393
+inonumber: 18499307
+inonumber: 240613
+inonumber: 108836421
+inonumber: 72504702
+inonumber: 240586
+inonumber: 27934734
+inonumber: 18280082
+inonumber: 69713248
+inonumber: 26241603
+inonumber: 27965194
+inonumber: 31804030
+inonumber: 18277849
+inonumber: 57082757
+inonumber: 28850210
+inonumber: 31768367
+inonumber: 48903080
+inonumber: 30573304
+inonumber: 69621391
+inonumber: 442859
+inonumber: 16642807
+inonumber: 88481519
+inonumber: 31438330
+inonumber: 106721068
+inonumber: 77409235
+inonumber: 24546092
+inonumber: 107664782
+inonumber: 29223905
+inonumber: 2284766
+inonumber: 40427731
+inonumber: 272522
+inonumber: 444510
+inonumber: 99957035
+inonumber: 28818283
+inonumber: 81863361
+inonumber: 110113098
+inonumber: 18310165
+inonumber: 419724
+inonumber: 72525684
+inonumber: 106723167
+inonumber: 18200727
+inonumber: 6483202
+inonumber: 240579
+inonumber: 444738
+inonumber: 240570
+inonumber: 118548022
+inonumber: 56503729
+inonumber: 444508
+inonumber: 1047726
+inonumber: 106721167
+inonumber: 106721166
+inonumber: 240582
+inonumber: 16739543
+inonumber: 69713249
+inonumber: 57082397
+inonumber: 63383239
+inonumber: 6468319
+inonumber: 434792
+inonumber: 262505
+inonumber: 60367229
+inonumber: 691659
+inonumber: 18201549
+inonumber: 2402024
+inonumber: 106721053
+inonumber: 40427727
+inonumber: 240616
+inonumber: 23672267
+inonumber: 30828198
+inonumber: 240571
+inonumber: 11999714
+inonumber: 6481386
+inonumber: 6479996
+inonumber: 270097
+inonumber: 1037839
+inonumber: 88156414
+inonumber: 435063
+inonumber: 240569
+inonumber: 6897554
+inonumber: 6478937
+inonumber: 49735285
+inonumber: 69718182
+inonumber: 69682321
+
+
+(7) ./UnixLs .. ~ -i -l
+
+inonumber: 103774766
+inonumber: 103774757
+inonumber: 118886969
+inonumber: 103774867
+inonumber: 111108225
+inonumber: 111108036
+inonumber: 111112157
+inonumber: 110067756
+inonumber: 103774778
+inonumber: 110068125
+inonumber: 110068651
+inonumber: 119953473
+inonumber: 110879504
+inonumber: 116189223
+inonumber: 110113945
+inonumber: 110138636
+inonumber: 111112107
+drwxr-xr-x   17 kimsongwi staff           544 Apr 11 2024 22:32 .
+drwxr-xr-x    4 kimsongwi staff           128 Jan 13 2024 16:10 ..
+drwxr-xr-x   13 kimsongwi staff           416 Apr 12 2024 14:25 a4
+-rw-r--r--    1 kimsongwi staff         10244 Apr 11 2024 22:34 .DS_Store
+drwxrwxr-x    9 kimsongwi staff           288 Feb 27 2024 19:52 CMPT300_A2-main
+-rw-r--r--    1 kimsongwi staff         10301 Feb 27 2024 19:53 CMPT300_A2_Sungwi_Kim.zip
+drwxrwxr-x    9 kimsongwi staff           288 Feb 27 2024 19:52 CMPT300_A2-main 2
+-rw-r--r--    1 kimsongwi staff        126002 Feb 21 2024 04:29 assignment2.pdf
+drwxr-xr-x    6 kimsongwi staff           192 Jan 31 2024 23:55 1
+-rw-r--r--    1 kimsongwi staff          5096 Feb 21 2024 04:31 list.zip
+drwx------    4 kimsongwi staff           128 Feb 21 2024 04:32 list
+drwxr-xr-x    8 kimsongwi staff           256 Apr 11 2024 22:34 testLs
+-rw-r--r--    1 kimsongwi staff         16273 Feb 26 2024 01:43 student-programs-sde-transcript.docx
+drwxr-xr-x   11 kimsongwi staff           352 Mar 25 2024 23:55 asgn3
+drwxr-xr-x    7 kimsongwi staff           224 Feb 21 2024 19:29 2
+drwxr-xr-x    8 kimsongwi staff           256 Feb 22 2024 04:05 asgn2
+-rw-r--r--    1 kimsongwi staff         10301 Feb 27 2024 19:55 CMPT300_A2_Sungwi_Kim (1).zip
+
+
+(8)  ./UnixLs . .. ~ -li
+
+inonumber: 118886969
+inonumber: 103774766
+inonumber: 118886985
+inonumber: 120144424
+inonumber: 119313091
+inonumber: 119312882
+inonumber: 120144422
+inonumber: 118911316
+inonumber: 118983914
+inonumber: 118910711
+inonumber: 118894820
+inonumber: 118908054
+inonumber: 118886987
+drwxr-xr-x   13 kimsongwi staff           416 Apr 12 2024 14:25 .
+drwxr-xr-x   17 kimsongwi staff           544 Apr 11 2024 22:32 ..
+-rw-r--r--    1 kimsongwi staff         19526 Apr 06 2024 17:39 CMPT300_A4_p1.docx
+-rwxr-xr-x    1 kimsongwi staff         34947 Apr 12 2024 14:25 UnixLs
+-rw-r--r--    1 kimsongwi staff          6148 Apr 09 2024 03:07 .DS_Store
+-rw-r--r--    1 kimsongwi staff           543 Apr 09 2024 03:06 Makefile
+-rw-r--r--    1 kimsongwi staff         12608 Apr 12 2024 14:25 UnixLs.o
+-rw-r--r--    1 kimsongwi staff           268 Apr 11 2024 22:23 UnixLs.h
+drwxr-xr-x   12 kimsongwi staff           384 Apr 12 2024 14:25 .git
+drwxr-xr-x    3 kimsongwi staff            96 Apr 06 2024 21:28 .vscode
+-rw-r--r--    1 kimsongwi staff           873 Apr 09 2024 02:32 infodemo.c
+-rw-r--r--    1 kimsongwi staff          4870 Apr 12 2024 14:25 UnixLs.c
+-rw-r--r--    1 kimsongwi staff           162 Apr 06 2024 17:39 ~$PT300_A4_p1.docx

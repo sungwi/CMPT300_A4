@@ -98,7 +98,8 @@ void l_cmd(const char* dirname) {
             if (len != -1) {
                 symlink[len] = '\0'; // Null-terminate the target path
             } else {
-                strcpy(symlink, "???"); // Indicate error in reading link
+                strncpy(symlink, dirname, sizeof(symlink) - 1);
+                symlink[sizeof(symlink) - 1] = '\0';
             }
             printf("%s %4lu %-8s %-8s %10ld %s %s -> %s\n",
                    st_mode,
