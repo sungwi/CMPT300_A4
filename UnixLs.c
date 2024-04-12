@@ -12,9 +12,10 @@ void i_cmd(const char* dirname) {
         return;
     }
 
+    char fullPath[1024];
     while ((dp = readdir(dir)) != NULL) {
-        char* dName = dp->d_name;
-        if (lstat(dName, &buf) == -1) {
+        snprintf(fullPath, sizeof(fullPath), "%s/%s", dirname, dp->d_name);
+        if (lstat(fullPath, &buf) == -1) {
             perror("error: lstat");
             return;
         } 
@@ -58,29 +59,25 @@ void l_cmd(const char* dirname) {
     struct dirent *dp;
     struct stat buf; // stat.h
 
-    dir = opendir(dirname);
+    dir = opendir(dirname); // dir have first entry pointer
     if(dir == NULL) {
         perror("error: opendir");
         return;
     }
-
+    char fullPath[1024];
     while ((dp = readdir(dir)) != NULL) { // readdir returns the pointer to the entry of directory. return 0 if sucess, NULL o.w.
-        // if (dirname[strlen(dirname) - 1] == '/') {
-        //     snprintf(fullPath, sizeof(fullPath), "%s%s", dirname, dp->d_name);
-        // } else {
-        //     snprintf(fullPath, sizeof(fullPath), "%s/%s", dirname, dp->d_name);
-        // }
+        //char* dName = dp->d_name;
+        if (dirname[strlen(dirname) - 1] == '/') {
+            snprintf(fullPath, sizeof(fullPath), "%s%s", dirname, dp->d_name);
+        } else {
+            snprintf(fullPath, sizeof(fullPath), "%s/%s", dirname, dp->d_name);
+        }
 
-        // if (lstat(fullPath, &buf) == -1) {
-        //     perror("error: lstat");
-        //     continue;
-        // }
-        char* dName = dp->d_name;
-        if (lstat(dName, &buf) == -1) {
+        if (lstat(fullPath, &buf) == -1) {
             perror("error: lstat");
-            return;
-        } 
-
+            continue;
+        }
+        
         // st_mode: read/write/execte permission of the file
         char st_mode[11];
         mode_to_string(buf.st_mode, st_mode);
@@ -95,14 +92,33 @@ void l_cmd(const char* dirname) {
         strftime(stMtime, sizeof(stMtime), "%b %d %Y %H:%M", localtime(&buf.st_mtime));
 
         // print 
-        printf("%s %4lu %-8s %-8s %10ld %s %s\n",
-                st_mode,
-                (unsigned long)buf.st_nlink,
-                pwd->pw_name,
-                grp->gr_name,
-                (long)buf.st_size,
-                stMtime,
-                dp->d_name);
+        char symlink[1024];
+        if (S_ISLNK(buf.st_mode)) {
+            ssize_t len = readlink(fullPath, symlink, sizeof(symlink) - 1);
+            if (len != -1) {
+                symlink[len] = '\0'; // Null-terminate the target path
+            } else {
+                strcpy(symlink, "???"); // Indicate error in reading link
+            }
+            printf("%s %4lu %-8s %-8s %10ld %s %s -> %s\n",
+                   st_mode,
+                   (unsigned long)buf.st_nlink,
+                   pwd ? pwd->pw_name : "unknown",
+                   grp ? grp->gr_name : "unknown",
+                   (long)buf.st_size,
+                   stMtime,
+                   dp->d_name,
+                   symlink);
+        } else {
+            printf("%s %4lu %-8s %-8s %10ld %s %s\n",
+                   st_mode,
+                   (unsigned long)buf.st_nlink,
+                   pwd ? pwd->pw_name : "unknown",
+                   grp ? grp->gr_name : "unknown",
+                   (long)buf.st_size,
+                   stMtime,
+                   dp->d_name);
+        }
     }
     closedir(dir);
     return;

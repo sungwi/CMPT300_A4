@@ -5,6 +5,7 @@
 #include <time.h>
 #include <grp.h>
 #include <string.h>
+#include <unistd.h> // readlink
 
 void i_cmd(const char* dirname);
 void l_cmd(const char* dirname);
